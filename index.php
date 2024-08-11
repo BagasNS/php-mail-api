@@ -31,6 +31,7 @@ $validation = $validator->validate($_POST, [
 ]);
 
 if ($validation->fails()) {
+    http_response_code(400);
     echo json_encode(array('success' => false, 'errors' => $validation->errors()->toArray()));
     exit;
 }
